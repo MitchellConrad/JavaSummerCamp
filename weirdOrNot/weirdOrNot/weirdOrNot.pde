@@ -18,14 +18,18 @@ String weirdOrNot(int N) {
     if (N >= 2 && N <= 5) {
       answer = "Not Weird";
       return answer;
-    } else if (N >= 6 && N <= 20) {
+    } 
+    else if (N >= 6 && N <= 20) {
       answer = "Weird";
       return answer;
     } 
-  }
-  
-   else {
-      answer = "Weird";
+    else {
+      answer = "Not Weird";
       return answer;
     }
+  } 
+  else {
+    answer = "Weird";
+    return answer;
+  }
 }
