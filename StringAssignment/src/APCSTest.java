@@ -5,7 +5,7 @@
 // Complete Function Stubs
 // Test in function in main
 
-public class StringTest {
+public class APCSTest {
     
     // 1.
     public static String writeFirstLast(String name) {
@@ -156,7 +156,7 @@ public class StringTest {
     public static String lastFive(String ccNumber) {
         String out = "";
         //TODO: Complete function code
-        
+        out = out + ccNumber.substring(ccNumber.length() - 6, ccNumber.length() - 5) + ccNumber.substring(ccNumber.length() - 4, ccNumber.length());
         return out;
     }
     
@@ -164,7 +164,7 @@ public class StringTest {
     public static String scroll(String str) {
         String out = "";
         //TODO: Complete function code
-        
+        out = str.substring(1, str.length()) + (str.substring(0, 1));
         return out;
     }
     
@@ -172,10 +172,20 @@ public class StringTest {
     public static String removeComments(String str) {
         String out = "";
         //TODO: Complete function code
+        int z = (str.indexOf("/"));
+        int b = (str.indexOf("*"));
+        int a = (str.lastIndexOf("/"));
+        int c = (str.lastIndexOf("*"));
+        if ((b - z == 1) && (a - c == 1) && (c > b)) {
+            out = out + str.substring(0, z) + str.substring(a + 1, str.length());
+            
+        }
+        else {
+        	return str;
+        }
+        return(out);
         
-        return out;
     }
-    
     // 9.
     public static String removeTag(String html) {
         String out = "";
@@ -210,9 +220,12 @@ public class StringTest {
         System.out.println(removeDashes("987-65-4321"));
         System.out.println("Testing Number 5");
         System.out.println(changeDateFormat("25/1/2017"));
-        System.out.println("Testing Number 6");
-        System.out.println(lastFour("4111 1111 1111 1111"));
-        
+        System.out.println("Testing Number 6a");
+        System.out.println(lastFour("4111 1111 1111 2345"));
+        System.out.println("Testing Number 6b"); 
+        System.out.println(lastFive("4111 1111 1111 2345"));
+        System.out.println(scroll("lcoo"));
+        System.out.println(removeComments("Hello sir/* You shouldnt see this */ Bye!"));
        
     }
 }
