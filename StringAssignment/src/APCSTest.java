@@ -190,14 +190,64 @@ public class APCSTest {
     public static String removeTag(String html) {
         String out = "";
         //TODO: Complete function code
-        
+        int a = html.indexOf("<");
+        int b = html.indexOf("b");
+        int c = html.indexOf(">");
+        int d = html.lastIndexOf("<");
+        int e = html.lastIndexOf("/");
+        int f = html.lastIndexOf("b");
+        int g = html.lastIndexOf(">");
+        if (a == 0 && b == 1 && c == 2 && d == html.length() - 4 && e == html.length() - 3 && f == html.length() - 2 && g == html.length() - 1) {
+        	out = out + html.substring(3, d);
+        }
+        else {
+        	out = out + html;
+        }
         return out;
     }
     
     // 10.
-    public boolean isValidISBN(String isbn) {
+    public static boolean isValidISBN(String isbn) {
         boolean valid = true;
         //TODO: Complete function code
+        char a = isbn.charAt(0);
+        char b = isbn.charAt(1);
+        char c = isbn.charAt(2);
+        char d = isbn.charAt(3);
+        char e = isbn.charAt(4);
+        char f = isbn.charAt(5);
+        char g = isbn.charAt(6);
+        char h = isbn.charAt(7);
+        char i = isbn.charAt(8);
+        char j = isbn.charAt(9);
+        int k = Character.digit(a, 10);
+        int l = Character.digit(b, 10);
+        int m = Character.digit(c, 10);
+        int n = Character.digit(d, 10);
+        int o = Character.digit(e, 10);
+        int p = Character.digit(f, 10);
+        int q = Character.digit(g, 10);
+        int r = Character.digit(h, 10);
+        int s = Character.digit(i, 10);
+        if (j == 'X') {
+        	int t = 10;
+        	if (((10 * k) + (9 * l) + (8 * m) + (7 * n) + (6 * o) + (5 * p) + (4 * q) + (3 * r) + (2 * s) + (t)) % 11 == 0) { 
+            	valid = true;
+            }
+            else {
+            	valid = false;
+        }
+        }
+        else {
+        	int t = Character.digit(j, 10);	
+        	if (((10 * k) + (9 * l) + (8 * m) + (7 * n) + (6 * o) + (5 * p) + (4 * q) + (3 * r) + (2 * s) + (t)) % 11 == 0) { 
+            	valid = true;
+            }
+            else {
+            	valid = false;
+        }
+        
+        }
         
         return valid;
     }
@@ -224,9 +274,15 @@ public class APCSTest {
         System.out.println(lastFour("4111 1111 1111 2345"));
         System.out.println("Testing Number 6b"); 
         System.out.println(lastFive("4111 1111 1111 2345"));
+        System.out.println("Testing Number 7");
         System.out.println(scroll("lcoo"));
+        System.out.println("Testing Number 8");
         System.out.println(removeComments("Hello sir/* You shouldnt see this */ Bye!"));
-       
+        System.out.println("Testing Number 9");
+        System.out.println(removeTag("<b>hi</b>"));
+        System.out.println("Testing Number 10");
+        System.out.println(isValidISBN("1111111111"));
+        System.out.println(isValidISBN("096548534X"));
     }
 }
 
