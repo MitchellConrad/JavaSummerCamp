@@ -14,8 +14,8 @@ public class StringJumble {
 				myArray[i] = input.substring(a, b);
 			}
 		}
-		return myArray[0] + myArray[1] + myArray [2];
-			
+		output =myArray[0] + myArray[1] + myArray [2];
+		return output;
 	}
 		
 
